@@ -26,4 +26,12 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+  
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#{term}%")
+    else
+      nil
+    end
+  end
 end
